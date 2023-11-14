@@ -28,7 +28,7 @@ export function SimpleFooter({ brandName, brandLink, routes }) {
                 href={path}
                 target="_blank"
                 variant="small"
-                className="py-0.5 px-1 font-normal text-inherit transition-colors hover:text-blue-500"
+                className="px-1 py-0.5 font-normal text-inherit transition-colors hover:text-blue-500"
               >
                 {name}
               </Typography>
@@ -41,7 +41,7 @@ export function SimpleFooter({ brandName, brandLink, routes }) {
 }
 
 SimpleFooter.defaultProps = {
-  brandName: "Creative Tim",
+  brandName: "Coastal Backyard Solutions, LLC.",
   brandLink: "https://www.creative-tim.com",
   routes: [
     { name: "Creative Tim", path: "https://www.creative-tim.com" },
