@@ -1,27 +1,28 @@
-import {
-  StarIcon,
-  PresentationChartLineIcon,
-  RocketLaunchIcon,
-} from "@heroicons/react/24/solid";
+import { ChevronDoubleRightIcon } from "@heroicons/react/24/solid";
 
 export const contactData = [
   {
-    title: "Excelent Services",
-    icon: StarIcon,
-    description:
-      "Some quick example text to build on the card title and make up the bulk of the card's content.",
+    title: "Design",
+    icon: ChevronDoubleRightIcon,
+    description: `Measurements and Consultation, Design sketch and plans, Project Review and Material scope, Prelimenary budget review`,
   },
   {
-    title: "Grow Your Market",
-    icon: PresentationChartLineIcon,
+    title: "Plan",
+    icon: ChevronDoubleRightIcon,
     description:
-      "Some quick example text to build on the card title and make up the bulk of the card's content.",
+      "Full scale construction document creation, Pre-Construction meeting with project leader to pick material selection, Permit submittals and approvals, Project scheduling and coordination, HOA submittals and approvals (customer to handle)",
   },
   {
-    title: "Launch Time",
-    icon: RocketLaunchIcon,
+    title: "Build",
+    icon: ChevronDoubleRightIcon,
     description:
-      "Some quick example text to build on the card title and make up the bulk of the card's content.",
+      "On-site supervision, Schedule and cost control, Detailed invoicing, Pool inspection and quality assurance, OSHA saftey assurance, Weekly site status reporting, Security monitoring",
+  },
+  {
+    title: "Swim",
+    icon: ChevronDoubleRightIcon,
+    description:
+      "Final walk through, Pool School, Warranty assurance, and endless memories!",
   },
 ];
 

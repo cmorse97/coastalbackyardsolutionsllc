@@ -1,30 +1,26 @@
-import {
-  StarIcon,
-  ArrowPathIcon,
-  FingerPrintIcon,
-} from "@heroicons/react/24/solid";
+import { WrenchIcon, ArrowPathIcon, FireIcon } from "@heroicons/react/24/solid";
 
 export const featuresData = [
   {
     color: "blue",
-    title: "New Pool Build",
-    icon: StarIcon,
+    title: "New Pool Construction",
+    icon: WrenchIcon,
     description:
-      "Divide details about your product or agency work into parts. A paragraph describing a feature will be enough.",
+      "From idea to reality, our team is ready to make your dream pool come to life. From elegant to simple designs your backyard oasis is set to dazzle all.",
   },
   {
     color: "red",
     title: "Pool Renovation",
     icon: ArrowPathIcon,
     description:
-      "Keep you user engaged by providing meaningful information. Remember that by this time, the user is curious.",
+      "Time to update and upgrade? Our team can take any outdated pool and make it look good as new.",
   },
   {
     color: "teal",
     title: "Outdoor Living",
-    icon: FingerPrintIcon,
+    icon: FireIcon,
     description:
-      "Write a few lines about each one. A paragraph describing a feature will be enough. Keep you user engaged!",
+      "Elevate your outdoor living experience by adding a patio cover, outdoor kitchen, fire pit, water features, lighting, loungers and so much more.",
   },
 ];
 

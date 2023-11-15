@@ -18,7 +18,7 @@ export function Home() {
   return (
     <>
       <div className="relative flex h-screen content-center items-center justify-center pb-32 pt-16">
-        <div className="absolute top-0 h-full w-full bg-[url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80')] bg-cover bg-center" />
+        <div className="absolute top-0 h-full w-full bg-[url('https://images.unsplash.com/photo-1567790834974-77d41712671f?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDJ8fHN3aW1taW5nJTIwcG9vbHxlbnwwfHwwfHx8MA%3D%3D')] bg-cover bg-center" />
         <div className="absolute top-0 h-full w-full bg-black/75 bg-cover bg-center" />
         <div className="max-w-8xl container relative mx-auto">
           <div className="flex flex-wrap items-center">
@@ -108,10 +108,9 @@ export function Home() {
       </section>
       <section className="px-4 pb-48 pt-20">
         <div className="container mx-auto">
-          <PageTitle heading="Here are our heroes">
-            According to the National Oceanic and Atmospheric Administration,
-            Ted, Scambos, NSIDClead scentist, puts the potentially record
-            maximum.
+          <PageTitle heading="Here is our work">
+            New construction, renovation, to outdoor amenities, we've got you
+            covered.
           </PageTitle>
           <div className="mt-24 grid grid-cols-1 gap-12 gap-x-24 md:grid-cols-2 xl:grid-cols-4">
             {teamData.map(({ img, name, position, socials }) => (
@@ -136,12 +135,12 @@ export function Home() {
       </section>
       <section className="relative bg-blue-gray-50/50 px-4 py-24">
         <div className="container mx-auto">
-          <PageTitle heading="Build something">
-            Put the potentially record low maximum sea ice extent tihs year down
-            to low ice. According to the National Oceanic and Atmospheric
-            Administration, Ted, Scambos.
+          <PageTitle heading="Our process">
+            We keep you informed and walk with you every step of the way. From
+            consultation to completion, our process is streamlined to give you
+            peace of mind.
           </PageTitle>
-          <div className="mx-auto mb-48 mt-20 grid max-w-5xl grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mx-auto mb-48 mt-20 grid max-w-5xl grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-4">
             {contactData.map(({ title, icon, description }) => (
               <Card
                 key={title}
@@ -157,7 +156,7 @@ export function Home() {
                 <Typography variant="h5" color="blue-gray" className="mb-2">
                   {title}
                 </Typography>
-                <Typography className="font-normal text-blue-gray-500">
+                <Typography className=" font-normal text-blue-gray-500">
                   {description}
                 </Typography>
               </Card>
