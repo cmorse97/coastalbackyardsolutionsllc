@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, useEffect, createElement } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import {
@@ -10,9 +10,9 @@ import {
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 export function Navbar({ brandName, routes }) {
-  const [openNav, setOpenNav] = React.useState(false);
+  const [openNav, setOpenNav] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.addEventListener(
       "resize",
       () => window.innerWidth >= 960 && setOpenNav(false)
@@ -36,7 +36,7 @@ export function Navbar({ brandName, routes }) {
               className="flex items-center gap-1 p-1 font-normal"
             >
               {icon &&
-                React.createElement(icon, {
+                createElement(icon, {
                   className: "w-[18px] h-[18px] opacity-75 mr-1",
                 })}
               {name}
@@ -48,7 +48,7 @@ export function Navbar({ brandName, routes }) {
               className="flex items-center gap-1 p-1 font-normal"
             >
               {icon &&
-                React.createElement(icon, {
+                createElement(icon, {
                   className: "w-[18px] h-[18px] opacity-75 mr-1",
                 })}
               {name}
@@ -85,7 +85,9 @@ export function Navbar({ brandName, routes }) {
       <MobileNav
         className="rounded-xl bg-white px-4 pb-4 pt-2 text-blue-gray-900"
         open={openNav}
-      ></MobileNav>
+      >
+        {navList}
+      </MobileNav>
     </MTNavbar>
   );
 }

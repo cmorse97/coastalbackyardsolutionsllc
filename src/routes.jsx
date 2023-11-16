@@ -1,5 +1,10 @@
 import { Home } from "@/pages";
-import { HomeIcon } from "@heroicons/react/24/solid";
+import {
+  HomeIcon,
+  PhoneIcon,
+  EnvelopeIcon,
+  QuestionMarkCircleIcon,
+} from "@heroicons/react/24/solid";
 
 export const routes = [
   {
@@ -7,6 +12,20 @@ export const routes = [
     name: "home",
     path: "/home",
     element: <Home />,
+  },
+  {
+    icon: QuestionMarkCircleIcon,
+    name: "about",
+    path: "/about",
+  },
+  {
+    icon: EnvelopeIcon,
+    name: "contact",
+    path: "/contact",
+  },
+  {
+    icon: PhoneIcon,
+    name: "713-701-5300",
   },
 ];
 

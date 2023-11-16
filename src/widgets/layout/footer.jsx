@@ -32,7 +32,7 @@ export function Footer({ title, description, socials, menus, copyright }) {
               ))}
             </div>
           </div>
-          <div className="mx-auto mt-12 grid w-max grid-cols-2 gap-24 lg:mt-0">
+          <div className="mx-auto mt-12 grid w-max grid-cols-1 gap-24 lg:mt-0">
             {menus.map(({ name, items }) => (
               <div key={name}>
                 <Typography
@@ -80,7 +80,7 @@ export function Footer({ title, description, socials, menus, copyright }) {
 
 Footer.defaultProps = {
   title: "Coastal Backyard Solutions, LLC.",
-  description: "Pool builds, Pool remodels, Outdoor living.",
+  description: "Pool Construction | Pool Renovation | Outdoor Living",
   socials: [
     {
       color: "blue",
@@ -102,8 +102,10 @@ Footer.defaultProps = {
     {
       name: "useful links",
       items: [
+        { name: "Home", path: "/home" },
         { name: "About Us", path: "https://www.creative-tim.com/presentation" },
-        { name: "Blog", path: "https://www.creative-tim.com/blog" },
+        { name: "Gallery", path: "https://www.creative-tim.com/blog" },
+        { name: "Process", path: "#" },
       ],
     },
   ],

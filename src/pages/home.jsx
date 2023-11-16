@@ -1,4 +1,4 @@
-import React from "react";
+import { createElement, useState, useEffect } from "react";
 import {
   Card,
   CardBody,
@@ -15,6 +15,20 @@ import { FeatureCard, TeamCard } from "@/widgets/cards";
 import { featuresData, teamData, contactData } from "@/data";
 
 export function Home() {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <>
       <div className="relative flex h-screen content-center items-center justify-center pb-32 pt-16">
@@ -31,9 +45,10 @@ export function Home() {
                 Your backyard oasis awaits.
               </Typography>
               <Typography variant="lead" color="white" className="opacity-80">
-                This is a simple example of a Landing Page you can build using
-                Material Tailwind. It features multiple components based on the
-                Tailwind CSS and Material Design by Google.
+                Whatever the scope of your project, Coastal Backyard Solutions
+                is ready to make your dream a reality. From pool construction to
+                outdoor leisure amenities, we are ready to transform your
+                backyard into the ultimate entertainment experience.
               </Typography>
             </div>
           </div>
@@ -47,7 +62,7 @@ export function Home() {
                 key={title}
                 color={color}
                 title={title}
-                icon={React.createElement(icon, {
+                icon={createElement(icon, {
                   className: "w-5 h-5 text-white",
                 })}
                 description={description}
@@ -64,19 +79,21 @@ export function Home() {
                 className="mb-3 font-bold"
                 color="blue-gray"
               >
-                Working with us is a pleasure
+                Who we are
               </Typography>
               <Typography className="mb-8 font-normal text-blue-gray-500">
-                Don't let your uses guess by attaching tooltips and popoves to
-                any element. Just make sure you enable them first via
-                JavaScript.
+                We are a family owned and operated business based in League
+                City, TX. Our goal is to help home owners bring their backyard
+                dreams to life. Whether it's a new pool, updating an old one, or
+                other outdoor living amenities, our team of experienced builders
+                can get the job done.
                 <br />
                 <br />
-                The kit comes with three pre-built pages to help you get started
-                faster. You can change the text and images and you're good to
-                go. Just make sure you enable them first via JavaScript.
+                We value integrity, honesty, and transparency. Our team is ready
+                to walk with you every step of the way, from consultation to
+                completion.
               </Typography>
-              <Button variant="outlined">read more</Button>
+              <Button variant="outlined">Contact us</Button>
             </div>
             <div className="mx-auto mt-24 flex w-full justify-center px-4 md:w-4/12 lg:mt-0">
               <Card className="shadow-lg shadow-gray-500/10">
@@ -93,12 +110,13 @@ export function Home() {
                     color="blue-gray"
                     className="mb-3 font-bold"
                   >
-                    Top Notch Services
+                    Family Owned
                   </Typography>
                   <Typography className="font-normal text-blue-gray-500">
-                    The Arctic Ocean freezes every winter and much of the
-                    sea-ice then thaws every summer, and that process will
-                    continue whatever happens.
+                    Family is why Coastal Backyard Solutions exists. Our family
+                    desires to help yours have a great outdoor living
+                    experience, where memories and moments can be endlessly
+                    captured.
                   </Typography>
                 </CardBody>
               </Card>
@@ -141,7 +159,7 @@ export function Home() {
             peace of mind.
           </PageTitle>
           <div className="mx-auto mb-48 mt-20 grid max-w-5xl grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-4">
-            {contactData.map(({ title, icon, description }) => (
+            {contactData.map(({ title, icon, altIcon, description }) => (
               <Card
                 key={title}
                 color="transparent"
@@ -149,16 +167,25 @@ export function Home() {
                 className="text-center text-blue-gray-900"
               >
                 <div className="mx-auto mb-6 grid h-14 w-14 place-items-center rounded-full bg-white shadow-lg shadow-gray-500/20">
-                  {React.createElement(icon, {
-                    className: "w-5 h-5",
-                  })}
+                  {window.innerWidth <= 768
+                    ? createElement(altIcon, {
+                        className: "w-5 h-5",
+                      })
+                    : createElement(icon, {
+                        className: "w-5 h-5",
+                      })}
                 </div>
                 <Typography variant="h5" color="blue-gray" className="mb-2">
                   {title}
                 </Typography>
-                <Typography className=" font-normal text-blue-gray-500">
-                  {description}
-                </Typography>
+                <div className="font-normal text-blue-gray-500">
+                  <ul className="list-disc pl-4">
+                    {/* @TODO - Fix bug, list not displaying */}
+                    {description.map((item, index) => {
+                      <li key={index}>{item}</li>;
+                    })}
+                  </ul>
+                </div>
               </Card>
             ))}
           </div>
