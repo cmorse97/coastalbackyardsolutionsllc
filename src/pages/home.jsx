@@ -69,7 +69,7 @@ export function Home() {
               />
             ))}
           </div>
-          <div className="mt-32 flex flex-wrap items-center">
+          <div id="about" className="mt-32 flex flex-wrap items-center">
             <div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
               <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-full bg-white p-3 text-center shadow-lg">
                 <UsersIcon className="h-6 w-6 text-blue-gray-900" />
@@ -178,14 +178,13 @@ export function Home() {
                 <Typography variant="h5" color="blue-gray" className="mb-2">
                   {title}
                 </Typography>
-                <div className="font-normal text-blue-gray-500">
-                  <ul className="list-disc pl-4">
-                    {/* @TODO - Fix bug, list not displaying */}
-                    {description.map((item, index) => {
-                      <li key={index}>{item}</li>;
-                    })}
+                <Typography className="font-normal text-blue-gray-500">
+                  <ul className="list-none gap-4">
+                    {description.map((item, index) => (
+                      <li key={index}>{item}</li>
+                    ))}
                   </ul>
-                </div>
+                </Typography>
               </Card>
             ))}
           </div>

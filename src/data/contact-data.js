@@ -9,9 +9,9 @@ export const contactData = [
     icon: ChevronDoubleRightIcon,
     altIcon: ChevronDoubleDownIcon,
     description: [
-      "Measurements and Consultation",
+      "Measurements and consultation",
       "Design sketch and plans",
-      "Project Review and Material scope",
+      "Project review and material scope",
       "Prelimenary budget review",
     ],
   },
@@ -21,7 +21,7 @@ export const contactData = [
     altIcon: ChevronDoubleDownIcon,
     description: [
       "Full scale construction document creation",
-      "Pre-Construction meeting with project leader to pick material selection",
+      "Meeting with project leader for material selection",
       "Permit submittals and approvals",
       "Project scheduling and coordination",
       "HOA submittals and approvals (customer to handle)",

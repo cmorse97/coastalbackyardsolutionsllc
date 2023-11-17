@@ -1,6 +1,6 @@
 import { useState, useEffect, createElement } from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 import {
   Navbar as MTNavbar,
   MobileNav,
@@ -21,7 +21,7 @@ export function Navbar({ brandName, routes }) {
 
   const navList = (
     <ul className="mb-4 mt-2 flex flex-col gap-2 text-inherit lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-      {routes.map(({ name, path, icon, href, target }) => (
+      {routes.map(({ name, path, icon }) => (
         <Typography
           key={name}
           as="li"
@@ -29,31 +29,13 @@ export function Navbar({ brandName, routes }) {
           color="inherit"
           className="capitalize"
         >
-          {href ? (
-            <a
-              href={href}
-              target={target}
-              className="flex items-center gap-1 p-1 font-normal"
-            >
-              {icon &&
-                createElement(icon, {
-                  className: "w-[18px] h-[18px] opacity-75 mr-1",
-                })}
-              {name}
-            </a>
-          ) : (
-            <Link
-              to={path}
-              target={target}
-              className="flex items-center gap-1 p-1 font-normal"
-            >
-              {icon &&
-                createElement(icon, {
-                  className: "w-[18px] h-[18px] opacity-75 mr-1",
-                })}
-              {name}
-            </Link>
-          )}
+          <Link to={path} className="flex items-center gap-1 p-1 font-normal">
+            {icon &&
+              createElement(icon, {
+                className: "w-[18px] h-[18px] opacity-75 mr-1",
+              })}
+            {name}
+          </Link>
         </Typography>
       ))}
     </ul>
