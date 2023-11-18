@@ -10,18 +10,21 @@ export const routes = [
   {
     icon: HomeIcon,
     name: "home",
-    path: "home",
+    path: "/",
+    href: "#home",
     element: <Home />,
   },
   {
     icon: QuestionMarkCircleIcon,
     name: "about",
     path: "/about",
+    href: "#about",
   },
   {
     icon: EnvelopeIcon,
     name: "contact",
     path: "/contact",
+    href: "#contact",
   },
   {
     icon: PhoneIcon,
