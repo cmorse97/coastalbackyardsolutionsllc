@@ -7,15 +7,15 @@ export function Footer({ title, description, socials, menus, copyright }) {
   return (
     <footer className="relative px-4 pb-6 pt-8">
       <div className="container mx-auto">
-        <div className="flex flex-wrap pt-6 text-center lg:text-left">
-          <div className="w-full px-4 lg:w-6/12">
+        <div className="flex flex-wrap pt-6 text-center">
+          <div className="w-full px-4 ">
             <Typography variant="h4" className="mb-4" color="blue-gray">
               {title}
             </Typography>
             <Typography className="font-normal text-blue-gray-500">
               {description}
             </Typography>
-            <div className="mx-auto mb-8 mt-6 flex justify-center gap-2 md:mb-0 lg:justify-start">
+            <div className="mx-auto mb-8 mt-6 flex justify-center gap-2 md:mb-0">
               {socials.map(({ color, name, path }) => (
                 <a
                   key={name}
@@ -31,35 +31,6 @@ export function Footer({ title, description, socials, menus, copyright }) {
                 </a>
               ))}
             </div>
-          </div>
-          <div className="mx-auto mt-12 grid w-max grid-cols-1 gap-24 lg:mt-0">
-            {menus.map(({ name, items }) => (
-              <div key={name}>
-                <Typography
-                  variant="small"
-                  color="blue-gray"
-                  className="mb-2 block font-medium uppercase"
-                >
-                  {name}
-                </Typography>
-                <ul className="mt-3">
-                  {items.map((item) => (
-                    <li key={item.name}>
-                      <Typography
-                        as="a"
-                        href={item.path}
-                        target="_blank"
-                        rel="noreferrer"
-                        variant="small"
-                        className="mb-2 block font-normal text-blue-gray-500 hover:text-blue-gray-700"
-                      >
-                        {item.name}
-                      </Typography>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
           </div>
         </div>
         <hr className="my-6 border-gray-300" />
@@ -91,22 +62,6 @@ Footer.defaultProps = {
       color: "purple",
       name: "instagram",
       path: "#",
-    },
-    {
-      color: "red",
-      name: "youtube",
-      path: "#",
-    },
-  ],
-  menus: [
-    {
-      name: "useful links",
-      items: [
-        { name: "Home", path: "/home" },
-        { name: "About Us", path: "https://www.creative-tim.com/presentation" },
-        { name: "Gallery", path: "https://www.creative-tim.com/blog" },
-        { name: "Process", path: "#" },
-      ],
     },
   ],
   copyright: (

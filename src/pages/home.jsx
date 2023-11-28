@@ -29,6 +29,12 @@ export function Home() {
     };
   }, []);
 
+  const scrollToSection = () => {
+    const targetElement = document.getElementById("contact");
+
+    targetElement.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <>
       <div className="relative flex h-screen content-center items-center justify-center pb-32 pt-16">
@@ -83,25 +89,31 @@ export function Home() {
               </Typography>
               <Typography className="mb-8 font-normal text-blue-gray-500">
                 We are a family owned and operated business based in League
-                City, TX. Our goal is to help home owners bring their backyard
-                dreams to life. Whether it's a new pool, updating an old one, or
-                other outdoor living amenities, our team of experienced builders
-                can get the job done.
+                City, TX. Our passion is to help home owners bring their
+                backyard dreams to life. Whether it's a new pool, updating an
+                old one, or other outdoor living amenities, our team of
+                experienced builders are ready to make your backyard the
+                ultimate at home getaway.
                 <br />
                 <br />
-                We value integrity, honesty, and transparency. Our team is ready
-                to walk with you every step of the way, from consultation to
-                completion.
+                We value integrity, honesty, and transparency. Our team is will
+                walk with you every step of the way, from consultation to
+                completion. We guarantee our work and perform a final
+                walkthrough with you before the job is complete, giving you the
+                peace of mind that the quality of the finished product matches
+                your vision.
               </Typography>
-              <Button variant="outlined">Contact us</Button>
+              <Button onClick={scrollToSection} variant="outlined">
+                Contact us
+              </Button>
             </div>
             <div className="mx-auto mt-24 flex w-full justify-center px-4 md:w-4/12 lg:mt-0">
               <Card className="shadow-lg shadow-gray-500/10">
                 <CardHeader className="relative h-56">
                   <img
                     alt="Card Image"
-                    src="/img/teamwork.jpeg"
-                    className="h-full w-full"
+                    src="public/img/family_photo.jpg"
+                    className="object-cover"
                   />
                 </CardHeader>
                 <CardBody>
@@ -127,16 +139,16 @@ export function Home() {
       <section className="px-4 pb-48 pt-20">
         <div className="container mx-auto">
           <PageTitle heading="Here is our work">
-            New construction, renovation, to outdoor amenities, we've got you
-            covered.
+            From pool construction to outdoor amenities, we provide quality work
+            guaranteed!
           </PageTitle>
           <div className="mt-24 grid grid-cols-1 gap-12 gap-x-24 md:grid-cols-2 xl:grid-cols-4">
-            {teamData.map(({ img, name, position, socials }) => (
+            {teamData.map(({ img, name, description, socials }) => (
               <TeamCard
                 key={name}
                 img={img}
                 name={name}
-                position={position}
+                description={description}
                 socials={
                   <div className="flex items-center gap-2">
                     {socials.map(({ color, name }) => (
@@ -193,6 +205,8 @@ export function Home() {
               Complete this form and we will get back to you in 24 hours.
             </PageTitle>
             <form className="mx-auto mt-12 max-w-3xl text-center">
+              {/* hidden input for netlify form submission */}
+              <input type="hidden" name="form-name" value="contact" />
               <div className="mb-8 flex gap-8">
                 <Input variant="standard" size="lg" label="Full Name" />
                 <Input variant="standard" size="lg" label="Email Address" />

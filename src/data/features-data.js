@@ -3,7 +3,7 @@ import { WrenchIcon, ArrowPathIcon, FireIcon } from "@heroicons/react/24/solid";
 export const featuresData = [
   {
     color: "blue",
-    title: "New Pool Construction",
+    title: "Pool Construction",
     icon: WrenchIcon,
     description:
       "From idea to reality, our team is ready to make your dream pool come to life. From elegant to simple designs your backyard oasis is set to dazzle all.",
@@ -13,7 +13,7 @@ export const featuresData = [
     title: "Pool Renovation",
     icon: ArrowPathIcon,
     description:
-      "Time to update and upgrade? Our team can take any outdated pool and make it look good as new.",
+      "Time to update and upgrade? Our team can take any outdated pool and make it look good as new. Your family and friends won't believe the transformation!",
   },
   {
     color: "teal",
