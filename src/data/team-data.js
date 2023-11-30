@@ -7,6 +7,7 @@ export const teamData = [
       {
         color: "purple",
         name: "instagram",
+        href: "https://www.instagram.com/coastalbackyardsolutions/",
       },
       {
         color: "blue",
@@ -22,10 +23,12 @@ export const teamData = [
       {
         color: "purple",
         name: "instagram",
+        href: "https://www.instagram.com/coastalbackyardsolutions/",
       },
       {
         color: "blue",
         name: "facebook",
+        href: "#",
       },
     ],
   },
@@ -37,10 +40,12 @@ export const teamData = [
       {
         color: "purple",
         name: "instagram",
+        href: "https://www.instagram.com/coastalbackyardsolutions/",
       },
       {
         color: "blue",
         name: "facebook",
+        href: "#",
       },
     ],
   },
@@ -53,10 +58,12 @@ export const teamData = [
       {
         color: "purple",
         name: "instagram",
+        href: "https://www.instagram.com/coastalbackyardsolutions/",
       },
       {
         color: "blue",
         name: "facebook",
+        href: "#",
       },
     ],
   },

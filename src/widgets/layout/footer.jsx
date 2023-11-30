@@ -61,7 +61,7 @@ Footer.defaultProps = {
     {
       color: "purple",
       name: "instagram",
-      path: "#",
+      path: "https://www.instagram.com/coastalbackyardsolutions/",
     },
   ],
   copyright: (
