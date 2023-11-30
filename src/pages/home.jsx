@@ -37,12 +37,12 @@ export function Home() {
 
   return (
     <>
-      <div className="relative flex h-screen content-center items-center justify-center pb-32 pt-16">
+      <div className="relative flex items-center content-center justify-center h-screen pt-16 pb-32">
         <div className="absolute top-0 h-full w-full bg-[url('https://images.unsplash.com/photo-1567790834974-77d41712671f?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDJ8fHN3aW1taW5nJTIwcG9vbHxlbnwwfHwwfHx8MA%3D%3D')] bg-cover bg-center" />
-        <div className="absolute top-0 h-full w-full bg-black/75 bg-cover bg-center" />
-        <div className="max-w-8xl container relative mx-auto">
+        <div className="absolute top-0 w-full h-full bg-center bg-cover bg-black/75" />
+        <div className="container relative mx-auto max-w-8xl">
           <div className="flex flex-wrap items-center">
-            <div className="ml-auto mr-auto w-full px-4 text-center lg:w-8/12">
+            <div className="w-full px-4 ml-auto mr-auto text-center lg:w-8/12">
               <Typography
                 variant="h1"
                 color="white"
@@ -60,7 +60,7 @@ export function Home() {
           </div>
         </div>
       </div>
-      <section id="about" className="-mt-32 bg-gray-50 px-4 pb-20 pt-4">
+      <section id="about" className="px-4 pt-4 pb-20 -mt-32 bg-gray-50">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {featuresData.map(({ color, title, icon, description }) => (
@@ -75,10 +75,10 @@ export function Home() {
               />
             ))}
           </div>
-          <div className="mt-32 flex flex-wrap items-center">
-            <div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
-              <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-full bg-white p-3 text-center shadow-lg">
-                <UsersIcon className="h-6 w-6 text-blue-gray-900" />
+          <div className="flex flex-wrap items-center mt-32">
+            <div className="w-full px-4 mx-auto -mt-8 md:w-5/12">
+              <div className="inline-flex items-center justify-center w-16 h-16 p-3 mb-6 text-center bg-white rounded-full shadow-lg">
+                <UsersIcon className="w-6 h-6 text-blue-gray-900" />
               </div>
               <Typography
                 variant="h3"
@@ -107,14 +107,10 @@ export function Home() {
                 Contact us
               </Button>
             </div>
-            <div className="mx-auto mt-24 flex w-full justify-center px-4 md:w-4/12 lg:mt-0">
+            <div className="flex justify-center w-full px-4 mx-auto mt-24 md:w-4/12 lg:mt-0">
               <Card className="shadow-lg shadow-gray-500/10">
-                <CardHeader className="relative h-56">
-                  <img
-                    alt="Card Image"
-                    src="public/img/family_photo.jpg"
-                    className="object-cover"
-                  />
+                <CardHeader className="relative h-48">
+                  <img alt="Card Image" src="/img/family_photo.jpg" />
                 </CardHeader>
                 <CardBody>
                   <Typography
@@ -136,13 +132,13 @@ export function Home() {
           </div>
         </div>
       </section>
-      <section className="px-4 pb-48 pt-20">
+      <section className="px-4 pt-20 pb-48">
         <div className="container mx-auto">
           <PageTitle heading="Here is our work">
             From pool construction to outdoor amenities, we provide quality work
             guaranteed!
           </PageTitle>
-          <div className="mt-24 grid grid-cols-1 gap-12 gap-x-24 md:grid-cols-2 xl:grid-cols-4">
+          <div className="grid grid-cols-1 gap-12 mt-24 gap-x-24 md:grid-cols-2 xl:grid-cols-4">
             {teamData.map(({ img, name, description, socials }) => (
               <TeamCard
                 key={name}
@@ -163,14 +159,14 @@ export function Home() {
           </div>
         </div>
       </section>
-      <section className="relative bg-blue-gray-50/50 px-4 py-24">
+      <section className="relative px-4 py-24 bg-blue-gray-50/50">
         <div className="container mx-auto">
           <PageTitle heading="Our process">
             We keep you informed and walk with you every step of the way. From
             consultation to completion, our process is streamlined to give you
             peace of mind.
           </PageTitle>
-          <div className="mx-auto mb-48 mt-20 grid max-w-5xl grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid max-w-5xl grid-cols-1 gap-16 mx-auto mt-20 mb-48 md:grid-cols-2 lg:grid-cols-4">
             {contactData.map(({ title, icon, altIcon, description }) => (
               <Card
                 key={title}
@@ -178,7 +174,7 @@ export function Home() {
                 shadow={false}
                 className="text-center text-blue-gray-900"
               >
-                <div className="mx-auto mb-6 grid h-14 w-14 place-items-center rounded-full bg-white shadow-lg shadow-gray-500/20">
+                <div className="grid mx-auto mb-6 bg-white rounded-full shadow-lg h-14 w-14 place-items-center shadow-gray-500/20">
                   {window.innerWidth <= 768
                     ? createElement(altIcon, {
                         className: "w-5 h-5",
@@ -191,7 +187,7 @@ export function Home() {
                   {title}
                 </Typography>
                 <Typography className="font-normal text-blue-gray-500">
-                  <ul className="list-none gap-4">
+                  <ul className="gap-4 list-none">
                     {description.map((item, index) => (
                       <li key={index}>{item}</li>
                     ))}
@@ -204,18 +200,25 @@ export function Home() {
             <PageTitle heading="Want to work with us?">
               Complete this form and we will get back to you in 24 hours.
             </PageTitle>
-            <form className="mx-auto mt-12 max-w-3xl text-center">
-              {/* hidden input for netlify form submission */}
-              <input type="hidden" name="form-name" value="contact" />
-              <div className="mb-8 flex gap-8">
-                <Input variant="standard" size="lg" label="Full Name" />
-                <Input variant="standard" size="lg" label="Email Address" />
-              </div>
-              <Textarea variant="standard" size="lg" label="Message" rows={8} />
-              <Button variant="gradient" size="lg" className="mt-8">
-                Send Message
-              </Button>
-            </form>
+            <div>
+              <form className="max-w-xs mx-auto mt-12 text-center md:max-w-3xl">
+                {/* hidden input for netlify form submission */}
+                <input type="hidden" name="form-name" value="contact" />
+                <div className="grid gap-8 mb-8 md:grid-cols-2">
+                  <Input variant="standard" size="lg" label="Name" />
+                  <Input variant="standard" size="lg" label="Email" />
+                </div>
+                <Textarea
+                  variant="standard"
+                  size="lg"
+                  label="Message"
+                  rows={8}
+                />
+                <Button variant="gradient" size="lg" className="mt-8">
+                  Send Message
+                </Button>
+              </form>
+            </div>
           </section>
         </div>
       </section>
