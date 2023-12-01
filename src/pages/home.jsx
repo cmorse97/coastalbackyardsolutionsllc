@@ -1,5 +1,6 @@
 import { createElement, useState, useEffect } from "react";
 import {
+  Alert,
   Card,
   CardBody,
   CardHeader,
@@ -16,6 +17,12 @@ import { featuresData, teamData, contactData } from "@/data";
 
 export function Home() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [submitSuccess, setSubmitSuccess] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -28,6 +35,37 @@ export function Home() {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString(),
+      });
+
+      setSubmitSuccess(true);
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+      });
+
+      setTimeout(() => {
+        setSubmitSuccess(false);
+      }, 3000);
+    } catch (error) {
+      console.error("Form submission error:", error);
+    }
+  };
 
   const scrollToSection = () => {
     const targetElement = document.getElementById("contact");
@@ -208,23 +246,62 @@ export function Home() {
               Complete this form and we will get back to you in 24 hours.
             </PageTitle>
             <div>
-              <form className="mx-auto mt-12 max-w-xs text-center md:max-w-3xl">
-                {/* hidden input for netlify form submission */}
-                <input type="hidden" name="form-name" value="contact" />
-                <div className="mb-8 grid gap-8 md:grid-cols-2">
-                  <Input variant="standard" size="lg" label="Name" />
-                  <Input variant="standard" size="lg" label="Email" />
-                </div>
-                <Textarea
-                  variant="standard"
-                  size="lg"
-                  label="Message"
-                  rows={8}
-                />
-                <Button variant="gradient" size="lg" className="mt-8">
-                  Send Message
-                </Button>
-              </form>
+              {!submitSuccess ? (
+                <form
+                  onSubmit={handleSubmit}
+                  className="mx-auto mt-12 max-w-xs text-center md:max-w-3xl"
+                >
+                  {/* hidden input for netlify form submission */}
+                  <input type="hidden" name="form-name" value="contact" />
+                  <div className="mb-8 grid gap-8 md:grid-cols-2">
+                    <Input
+                      variant="standard"
+                      size="lg"
+                      label="Name"
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                    />
+                    <Input
+                      variant="standard"
+                      size="lg"
+                      label="Email"
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <Textarea
+                    variant="standard"
+                    size="lg"
+                    label="Message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows={8}
+                  />
+                  <Button
+                    variant="gradient"
+                    size="lg"
+                    className="mt-8"
+                    type="submit"
+                  >
+                    Send Message
+                  </Button>
+                </form>
+              ) : (
+                <Alert
+                  className="mt-12"
+                  animate={{
+                    mount: { y: 0 },
+                    unmount: { y: 100 },
+                  }}
+                >
+                  Your message has been sent!
+                </Alert>
+              )}
             </div>
           </section>
         </div>
