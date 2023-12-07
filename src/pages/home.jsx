@@ -252,7 +252,7 @@ export function Home() {
                   className="mx-auto mt-12 max-w-xs text-center md:max-w-3xl"
                 >
                   {/* hidden input for netlify form submission */}
-                  <input type="hidden" name="form-name" value="contact" />
+                  <input type="hidden" name="contact" value="contact" />
                   <div className="mb-8 grid gap-8 md:grid-cols-2">
                     <Input
                       variant="standard"
