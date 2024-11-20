@@ -148,7 +148,7 @@ export function Home() {
             <div className="mx-auto mt-24 flex w-full justify-center px-4 md:w-4/12 lg:mt-0">
               <Card className="shadow-lg shadow-gray-500/10">
                 <CardHeader className="relative h-48">
-                  <img alt="Card Image" src="/img/family_photo.jpg" />
+                  <img alt="Card Image" src="/public/img/family-photo.JPG" />
                 </CardHeader>
                 <CardBody>
                   <Typography

@@ -28,8 +28,8 @@ export const routes = [
   },
   {
     icon: PhoneIcon,
-    name: "713-701-5300",
-    href: "tel: +17137015300",
+    name: "346-515-5105",
+    href: "tel: +13465155105",
   },
 ];
 
